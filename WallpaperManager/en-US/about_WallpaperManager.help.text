@@ -1,0 +1,8 @@
+PSTOPIC
+    about_WallpaperManager
+
+SHORT DESCRIPTION
+    Allows for an image to be dynamically set as the lockscreen image based off of the resolution of the primary monitor.
+    
+    You can find documentation here:
+        https://github.com/UNT-CAS/WallpaperManager

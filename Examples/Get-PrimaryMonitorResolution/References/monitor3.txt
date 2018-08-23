@@ -1,0 +1,7 @@
+{
+    "Attach.ToDesktop": 1,
+    "Attach.RelativeX": 90,
+    "Attach.RelativeY": 0,
+    "DefaultSettings.YResolution": 1024,
+    "DefaultSettings.XResolution": 1280
+}

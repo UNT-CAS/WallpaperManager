@@ -1,0 +1,51 @@
+image: WMF 5
+
+version: 0.1.{build}
+
+# Skip on updates to the readme.
+# We can force this by adding [skip ci] or [ci skip] anywhere in commit message 
+skip_commits:
+  message: /update(?:|d|s) readme\..*/
+
+environment:
+  PSGalleryApiKey:
+    secure: Y8L0lcqkGxbpyPh9ncTZs6eV9mno7FJ1N1Idi0VhNQYClbjkvCTrFpFEEhjwmLpG
+  CODECOV_TOKEN:
+    secure: # NEED TO DO!
+
+
+
+install:
+# Bootstrap PSDepend and Install Dependencies
+- ps: |
+    Install-PackageProvider -Name NuGet -MinimumVersion '2.8.5.201' -Force
+    Install-Module -Name PSDepend -Force; Import-Module -Name PSDepend
+    Invoke-PSDepend '.\REQUIREMENTS.psd1' -Force
+
+
+
+build_script:
+- ps: Invoke-psake '.\.scripts\build.ps1' -Properties @{'SkipBootStrap' = $true}
+
+
+
+deploy:
+  release: v$(APPVEYOR_BUILD_VERSION)
+  description: WallpaperManager v$(appveyor_build_version)
+  provider: GitHub
+  auth_token:
+    secure: Vw4SeFATUV5sFO3gPVSe4PRu8gtUqDxSYUHRfpH+Y2n4U65IKkcFyK1dN+j3ZQq0
+  artifact: /.*\.zip/
+  draft: false
+  prerelease: true
+  on:
+    branch: master                 # release from master branch only
+    appveyor_repo_tag: false        # deploy except on tag push only
+
+
+
+on_success:
+# If build was started by pushed tag; deploy it.
+- ps: |
+    Write-Host "[AppVeyor] On Success; deploying ..." -Foregroundcolor Green
+    Invoke-PSDeploy -Path '.\.scripts\deploy.ps1' -Force
