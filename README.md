@@ -1,3 +1,8 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/t3kx0sy41ouw7cry?svg=true)](https://ci.appveyor.com/project/UNT-CAS/WallpaperManager)
+[![codecov](https://codecov.io/gh/UNT-CAS/WallpaperManager/branch/master/graph/badge.svg)](https://codecov.io/gh/UNT-CAS/WallpaperManager)
+[![version](https://img.shields.io/powershellgallery/v/WallpaperManager.svg)](https://www.powershellgallery.com/packages/WallpaperManager)
+[![downloads](https://img.shields.io/powershellgallery/dt/WallpaperManager.svg?label=downloads)](https://www.powershellgallery.com/stats/packages/WallpaperManager?groupby=Version)
+
 # Description
 
 This module allows for an image to be dynamically set as the lockscreen image based off of the resolution of the primary monitor. The idea is to use this in an enterprise environment where you need to set one image with a dynamic resolution to several computers. We can achieve this by running the scripts through Group Policy as the *system* user.
