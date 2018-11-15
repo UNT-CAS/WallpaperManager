@@ -6,8 +6,7 @@ function Get-PrimaryMonitorResolution {
     )
 
     foreach ($Monitor in $Monitors) {
-        $Item = Get-ItemProperty $Monitor
-        # $Item = Get-ItemProperty $Monitor.PSPath
+        $Item = Get-ItemProperty $Monitor.PSPath
 
         if ($Item.'Attach.ToDesktop') {
             #this is a monitor
