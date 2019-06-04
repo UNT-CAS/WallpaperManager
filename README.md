@@ -10,9 +10,9 @@ This module allows for an image to be dynamically set as the lockscreen image ba
 # Quick Setup
 
 1. Set the Environment Variables; see [section below](#environment-variables)
-2. Install *Set-LockScreenWallpaper*: `Install-Module Set-LockScreenWallpaper`
-3. Import *Set-LockScreenWallpaper*: `Import-Module Set-LockScreenWallpaper`
-4. Start *Set-LockScreenWallpaper*: `Invoke-Module Set-LockScreenWallpaper`
+2. Install *WallpaperManager*: `Install-Module -Name WallpaperManager -Force`
+3. Import *WallpaperManager*: `Import-Module WallpaperManager`
+4. Start *Set-LockScreenWallpaper*: `Set-LockScreenWallpaper`
 
 # Environment Variables
 

@@ -39,6 +39,23 @@ Describe $testFile.Name {
                 continue
             }
 
+            if ($test.MockOSVersion.Output.Throws) {
+                Mock Get-OSVersion {
+                    Throw 'Error getting OS Version'
+                }
+
+                It "Get-OSVersion Throws" {
+                    { $script:Cards = Get-OSVersion } | Should Throw
+                }
+                continue
+            }
+
+            if ($Test.MockOSVersion) {
+                Mock Get-OSVersion {
+                    return $Test.OSVersion
+                }
+            }
+
             Mock Get-ChildItem {
                 $File = Join-Path -Path (Join-Path -Path $exampleDirectory -ChildPath 'References' -Resolve) -ChildPath 'cards.txt' -Resolve
                 return Get-Content $File | Out-String | ConvertFrom-Json
