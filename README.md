@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/t3kx0sy41ouw7cry?svg=true)](https://ci.appveyor.com/project/UNT-CAS/WallpaperManager)
+[![Build status](https://ci.appveyor.com/api/projects/status/t3kx0sy41ouw7cry?svg=true)](https://ci.appveyor.com/project/UNTCAS/WallpaperManager)
 [![codecov](https://codecov.io/gh/UNT-CAS/WallpaperManager/branch/master/graph/badge.svg)](https://codecov.io/gh/UNT-CAS/WallpaperManager)
 [![version](https://img.shields.io/powershellgallery/v/WallpaperManager.svg)](https://www.powershellgallery.com/packages/WallpaperManager)
 [![downloads](https://img.shields.io/powershellgallery/dt/WallpaperManager.svg?label=downloads)](https://www.powershellgallery.com/stats/packages/WallpaperManager?groupby=Version)
