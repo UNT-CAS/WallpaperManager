@@ -1,6 +1,8 @@
 @{
     Parameters = @{
-        Monitors = 'monitor4'
+        Monitors = @{
+            PSPath = 'monitor4'
+        }
     }
     Output = @{
         Throws = $true

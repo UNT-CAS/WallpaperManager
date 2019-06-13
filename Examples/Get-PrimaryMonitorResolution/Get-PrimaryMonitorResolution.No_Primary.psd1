@@ -1,8 +1,12 @@
 @{
     Parameters = @{
         Monitors = @(
-            'monitor1',
-            'monitor3'
+            @{
+                PSPath = 'monitor1'
+            },
+            @{
+                PSPath = 'monitor3'
+            }
         )
     }
     Output = @{

@@ -1,6 +1,8 @@
 @{
     Parameters = @{
-        Monitors = 'monitor1'
+        Monitors = @{
+            PSPath = 'monitor1'
+        }
     }
     Output = @{
         Type  = 'System.Collections.Hashtable'

@@ -3,6 +3,7 @@
 [IO.DirectoryInfo] $projectRoot = Split-Path -Parent $pesterFile.Directory
 [IO.DirectoryInfo] $projectDirectory = Join-Path -Path $projectRoot -ChildPath $projectDirectoryName -Resolve
 [IO.DirectoryInfo] $exampleDirectory = [IO.DirectoryInfo] ([String] (Resolve-Path (Get-ChildItem (Join-Path -Path $ProjectRoot -ChildPath 'Examples' -Resolve) -Filter (($pesterFile.Name).Split('.')[0]) -Directory).FullName))
+[IO.DirectoryInfo] $ReferenceDirectory = Join-Path -Path $ExampleDirectory.FullName -ChildPath 'References' -Resolve
 [IO.FileInfo]      $testFile = Join-Path -Path $projectDirectory -ChildPath (Join-Path -Path 'Private' -ChildPath ($pesterFile.Name -replace '\.Tests\.', '.')) -Resolve
 . $testFile
 
@@ -30,7 +31,8 @@ Describe $testFile.Name {
 
         Context $test.Name {
             Mock Get-ItemProperty {
-                if ($File = Join-Path -Path (Join-Path -Path $exampleDirectory -ChildPath 'References' -Resolve) -ChildPath ('{0}.txt' -f $Monitor) -Resolve) {
+                $File = Join-Path -Path $ReferenceDirectory.FullName -ChildPath ('{0}.txt' -f $Monitor.PSPath)
+                if ($File) {
                     return Get-Content $File | Out-String | ConvertFrom-Json
                 } else {
                     Throw 'Error getting Item Info'
