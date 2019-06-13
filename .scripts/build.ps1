@@ -115,7 +115,7 @@ Task Bootstrap -Description "Bootstrap & Run PSDepend" {
         - Modify Manifest information; keeping purged information.
         - Establish Module/Resource Locations/Paths.
 #>
-Task SetupModule -Description "Prepare and Setup Module" -Depends $DependsBootstrap {
+Task SetupModule -Description "Prepare and Setup Module" {
     New-Item -ItemType Directory -Path $script:ParentModulePath -Force
 
     $script:Manifest.Path = "${script:ParentModulePath}\${script:Manifest_ModuleName}.psd1"
