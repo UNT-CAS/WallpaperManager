@@ -5,13 +5,17 @@ function Get-Monitors {
         $Cards
     )
 
-    foreach ($Card in $Cards) {
+    $Monitors = foreach ($Card in $Cards) {
         try {
-            $Monitors += Get-ChildItem $Card.PSPath -ErrorAction Stop
+            Get-ChildItem $Card.PSPath -ErrorAction Stop
         } catch {
-            Throw('Error getting monitors')
+            Write-Warning ('Failed to find monitors on card: {0}' -f $Card)
         }
     }
 
-    return $Monitors
+    if ($Monitors) {
+        Write-Output $Monitors
+    } else {
+        Throw 'Failed to find monitors'
+    }
 }
