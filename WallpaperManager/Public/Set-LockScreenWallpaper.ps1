@@ -11,7 +11,7 @@ function Set-LockScreenWallpaper{
 
         [Parameter(Mandatory = $False)]
         [String]
-        $WallpaperName = "wallpaper.jpg",
+        $WallpaperName = "backgroundDefault.jpg",
 
         [Parameter(Mandatory = $False)]
         [String]
